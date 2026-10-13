@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>양구초 운영 보고회 안내</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+[hidden]{display:none!important}
+/* 배치: 전경(영상)이 크게 나오고 그 아래 끝에 흰 제목 판이 걸친다. 종이빛 바탕에 먹색 글자, 알약 모양 단추. 마우스를 올리면 노랑으로 채워진다. 파랑은 시간과 번호에만. */
+:root{
+  color-scheme: light;
+  --sky:#f3f2ed;        /* 바탕 */
+  --card:#ffffff;       /* 판 */
+  --ink:#111418;        /* 글자 */
+  --mute:#5b6068;       /* 보조 글자 */
+  --blue:#1560f0;       /* 강조 */
+  --wash:#e8e6de;       /* 옅은 파랑 면 */
+  --sun:#ffd22e;        /* 신청 버튼 */
+  --line:#d8d5cb;
+  --font:"Bricolage Grotesque","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --gutter:clamp(16px,4vw,40px);
+  --wide:1120px;
+}
+*{box-sizing:border-box}
+body{background:var(--sky);color:var(--ink);font-family:var(--font);font-size:1rem;line-height:1.7;word-break:keep-all}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.draft{margin:0;background:var(--ink);color:var(--card);font-size:.8125rem;text-align:center;padding:.4rem var(--gutter)}
+
+/* ── 첫 화면 ── */
+.hero-media-box{overflow:hidden;aspect-ratio:2.7/1;max-height:560px;width:100%;background:var(--wash)}
+.hero-media{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:60% 50%}
+.title-card{position:relative;margin-top:clamp(-44px,-3vw,-22px);background:var(--card);border-radius:28px;padding:clamp(24px,4vw,48px);display:grid;gap:clamp(14px,2vw,22px);box-shadow:0 24px 60px -28px rgba(17,20,24,.45)}
+.badge{justify-self:start;margin:0;font-weight:700;font-size:clamp(.8125rem,1.4vw,.9375rem);color:var(--blue);background:var(--wash);padding:.35rem .9rem;border-radius:999px}
+h1{margin:0;font-weight:900;font-size:clamp(2rem,6vw,4.25rem);line-height:1.15;letter-spacing:-.03em;text-wrap:balance}
+.theme{margin:0;font-size:clamp(1.0625rem,2.1vw,1.4rem);font-weight:500;color:var(--mute);text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem 2.5rem;margin:0;padding:clamp(14px,2vw,20px) 0 0;border-top:1px solid var(--line)}
+.facts div{min-width:0;display:flex;gap:.75rem;align-items:baseline}
+.facts dt{font-weight:700;color:var(--blue)}
+.facts dd{margin:0;font-weight:700;font-size:clamp(1.0625rem,2vw,1.3rem);font-variant-numeric:tabular-nums}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.7rem 1.7rem;border-radius:999px;font-weight:700;font-size:1.0625rem;text-decoration:none;border:2px solid transparent}
+.btn-go{background:var(--sun);color:var(--ink)}
+.btn-go:hover{border-color:var(--ink)}
+.btn-line{border-color:var(--line);color:var(--ink);background:var(--card)}
+.btn-line:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── 구역 공통 ── */
+.sec{padding-block:clamp(48px,7vw,88px) 0}
+h2{margin:0 0 .4rem;font-weight:900;font-size:clamp(1.6rem,3.8vw,2.5rem);line-height:1.2;letter-spacing:-.02em}
+.lead{margin:0 0 clamp(20px,3vw,32px);max-width:60ch;color:var(--mute)}
+
+/* ── 일정 ── */
+.plan{list-style:none;margin:0;padding:0;background:var(--card);border-radius:24px;overflow:hidden}
+.plan li{display:grid;grid-template-columns:11.5rem minmax(0,1fr) minmax(0,14rem);gap:.25rem 1.5rem;align-items:center;padding:1.15rem clamp(18px,3vw,32px)}
+.plan li+li{border-top:1px solid var(--line)}
+.plan time{font-weight:900;font-size:clamp(1.25rem,2.4vw,1.6rem);color:var(--blue);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.plan b{font-size:clamp(1.0625rem,2vw,1.25rem)}
+.plan span{color:var(--mute)}
+
+/* ── 안내도 ── */
+.maps{display:grid;gap:16px;grid-template-columns:repeat(12,minmax(0,1fr))}
+.shot{grid-column:span 12;position:relative;display:block;padding:0;border:0;border-radius:20px;overflow:hidden;background:var(--card);cursor:zoom-in;font:inherit;color:inherit;box-shadow:0 0 0 1px var(--line)}
+.shot:hover{box-shadow:0 0 0 3px var(--blue)}
+.shot img{display:block;width:100%;height:auto}
+.shot .tag{position:absolute;right:10px;bottom:10px;padding:.3rem .8rem;border-radius:999px;background:var(--ink);color:var(--card);font-weight:700;font-size:.8125rem}
+.shot-main{grid-column:span 7}.shot-annex{grid-column:span 5}
+.maps h3{grid-column:span 12;margin:1rem 0 0;font-size:1.25rem;font-weight:700}
+
+/* ── 신청·맺음 ── */
+.apply{background:var(--card);border-radius:24px;padding:clamp(24px,4vw,40px);display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between}
+.apply h2{margin:0}.apply p{margin:.25rem 0 0;color:var(--mute)}
+.apply > div{min-width:0;display:grid;gap:.5rem;justify-items:start}
+.apply-url{font-weight:800;font-size:1.25rem;color:var(--ink)!important;user-select:all;margin:0 0 .5rem!important}
+.qr{width:150px;height:150px;border-radius:12px;border:1px solid var(--line);background:#fff;padding:8px;image-rendering:pixelated}
+.notice-box{margin-bottom:24px;padding:clamp(18px,3vw,26px);border-radius:20px;border:1px solid var(--line);background:var(--card)}
+.notice-box h2{font-size:1.125rem;margin:0 0 .5rem;color:var(--ink)}
+.notice-box ul{margin:0;padding-left:1.15rem;line-height:1.75}
+.end p{margin:0}
+.end{padding-block:40px 56px;color:var(--mute);font-size:.9375rem}
+
+/* ── 확대 보기 ── */
+.viewer{position:fixed;inset:0;z-index:50;display:grid;grid-template-rows:auto minmax(0,1fr);background:var(--ink)}
+.viewer-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:calc(10px + env(safe-area-inset-top,0px)) 14px 10px;color:var(--card)}
+.viewer-bar b{flex:1 1 auto;min-width:0;font-size:1.0625rem}
+.vbtn{min-width:46px;min-height:46px;padding:0 .9rem;border-radius:12px;border:0;background:var(--card);color:var(--ink);font:700 1rem var(--font);cursor:pointer}
+.vbtn:hover{background:var(--sun)}
+.viewer :focus-visible{outline-color:var(--sun)}
+.stage{position:relative;overflow:hidden;touch-action:none;cursor:grab}
+.stage.drag{cursor:grabbing}
+.hl{position:absolute;top:0;left:0;pointer-events:none;border:3px solid #ff3b30;border-radius:4px;box-shadow:0 0 0 2px rgba(255,210,46,.95),0 0 12px 3px rgba(255,59,48,.55);animation:blink 1s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+@media (prefers-reduced-motion:reduce){.hl{animation:none}}
+.stage img{position:absolute;top:0;left:0;max-width:none;transform-origin:0 0;user-select:none;-webkit-user-drag:none;will-change:transform}
+
+/* ── 메뉴 ── */
+html{scroll-behavior:smooth}
+.sec{scroll-margin-top:76px}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--card);box-shadow:0 1px 0 var(--line)}
+.nav-in{display:flex;align-items:center;gap:1rem;min-height:56px}
+.nav b{flex:none;font-weight:900}
+@media (max-width:880px){.nav b{display:none}.nav ul{margin-left:0}}
+.nav ul{display:flex;gap:.25rem;margin:0 0 0 auto;padding:0;list-style:none;min-width:0;overflow-x:auto}
+.nav a{display:block;padding:.55rem .8rem;border-radius:999px;font-weight:700;text-decoration:none;color:var(--ink);white-space:nowrap}
+.nav a:hover{background:var(--wash);color:var(--blue)}
+
+/* ── 공개수업 ── */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{min-height:44px;padding:0 1.1rem;border-radius:999px;border:1px solid var(--line);background:var(--card);font:700 1rem var(--font);color:var(--ink);cursor:pointer}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.lessons{list-style:none;margin:0;padding:0;background:var(--card);border-radius:24px;overflow:hidden}
+.lessons li{display:grid;grid-template-columns:7rem minmax(0,1fr) auto;gap:.5rem 1.5rem;align-items:center;padding:1.1rem clamp(18px,3vw,32px)}
+.lessons li+li{border-top:1px solid var(--line)}
+.lessons .cls{font-weight:900;font-size:clamp(1.25rem,2.4vw,1.5rem);color:var(--blue);font-variant-numeric:tabular-nums}
+.lessons .what{min-width:0}
+.lessons .what b{display:block;font-size:clamp(1.0625rem,2vw,1.2rem)}
+.lessons .what span{color:var(--mute)}
+.lessons .what b.pending{font-weight:500;color:var(--mute)}
+.link-detail .to{margin-top:.75rem;font-size:.875rem;font-weight:700;color:var(--blue)}
+.link-detail .to::before{content:'→ '}
+.motto{text-align:center;padding-block:clamp(40px,7vw,80px) clamp(8px,2vw,16px)}
+.motto-tag{margin:0 0 .75rem;font-size:.8125rem;letter-spacing:.08em;color:var(--mute)}
+.motto blockquote{margin:0}
+.motto blockquote p{margin:0;font-weight:900;font-size:clamp(1.375rem,3.2vw,2.125rem);line-height:1.4;letter-spacing:-.02em;color:var(--ink)}
+.motto-sub{margin:.9rem auto 0;max-width:40em;color:var(--mute);font-size:clamp(.9375rem,1.6vw,1.0625rem)}
+.br-m{display:none}
+@media (max-width:640px){.br-m{display:inline}.br-pc{display:none}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;list-style:none;margin:-8px 0 16px;padding:0;font-size:.9375rem;color:var(--mute)}
+.legend li{display:flex;align-items:center;gap:6px}
+.star{color:#e0a100;font-size:1.05em;margin-left:.25em}
+.lessons .cls{white-space:nowrap}
+.legend .star{margin:0}
+.badge-co{display:inline-block;padding:.05rem .55rem;border-radius:999px;background:var(--wash);color:var(--ink);font-size:.8125rem;font-weight:700;vertical-align:.12em}
+.lessons .none{display:block;color:var(--mute)}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.mini{display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border-radius:999px;border:1px solid var(--line);background:var(--card);font:700 .9375rem var(--font);color:var(--ink);text-decoration:none;cursor:pointer}
+.mini:hover{border-color:var(--blue);color:var(--blue)}
+.mini.fill{background:var(--blue);border-color:var(--blue);color:var(--card)}
+.mini.fill:hover{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.mini.off{opacity:.45;cursor:default;pointer-events:none}
+
+/* ── 동선 ── */
+.route{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:18px;align-items:stretch}
+.route > div{display:flex;flex-direction:column;min-width:0}
+.route .help{margin-top:auto}
+.route .credit{margin-bottom:16px}
+.route-map{position:relative;border-radius:20px;overflow:hidden;background:var(--card);box-shadow:0 0 0 1px var(--line)}
+.route-map img{display:block;width:100%;height:auto}
+.route-map svg{position:absolute;inset:0;width:100%;height:100%}
+.route-map path{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.r-all{stroke:var(--card);stroke-width:4;stroke-dasharray:2 9;opacity:.9}
+.r-glow{stroke:var(--ink);stroke-width:11;opacity:.55}
+.r-leg{stroke:var(--sun);stroke-width:7}
+.r-leg.draw{animation:draw 1.5s cubic-bezier(.4,0,.2,1) both}
+@keyframes draw{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
+.pin{position:absolute;transform:translate(-50%,-50%);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:3px solid var(--card);background:var(--ink);color:var(--card);font-weight:900;font-size:1rem;cursor:pointer;padding:0;font-family:var(--font);transition:transform .25s ease,background-color .25s ease;box-shadow:0 4px 12px rgba(17,20,24,.5)}
+.pin[aria-current="true"]{background:var(--sun);color:var(--ink);transform:translate(-50%,-50%) scale(1.3)}
+.pin[aria-current="true"]::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:3px solid var(--sun);animation:ping 1.6s ease-out infinite}
+@keyframes ping{from{transform:scale(.7);opacity:1}to{transform:scale(1.5);opacity:0}}
+.lm{position:absolute;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;font-weight:800;line-height:1}
+.lm-school{font-size:clamp(.75rem,1.6vw,1.15rem);letter-spacing:.06em;color:var(--card);padding:.3em .8em;border-radius:999px;background:rgba(17,20,24,.62);border:1px solid rgba(255,255,255,.55)}
+.lm-gate{font-size:clamp(.6875rem,1.2vw,.875rem);color:var(--ink);padding:.3em .65em;border-radius:8px;background:var(--card);border:2px solid var(--ink);box-shadow:0 2px 6px rgba(17,20,24,.3)}
+.lm-gate::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:10px;transform:translateX(-50%) rotate(45deg);background:var(--card);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.pin-tag{position:absolute;transform:translate(26px,-50%);padding:.15rem .6rem;border-radius:999px;background:var(--ink);color:var(--card);font-size:.8125rem;font-weight:700;white-space:nowrap;pointer-events:none}
+.pin-tag.up{transform:translate(-16px,-46px)}
+.stops{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.stop{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.1rem .9rem;align-items:center;width:100%;padding:.9rem 1.1rem;border:2px solid transparent;border-radius:18px;background:var(--card);font:inherit;color:inherit;text-align:left;cursor:pointer;transition:border-color .2s ease,background-color .2s ease}
+.stop:hover{border-color:var(--line)}
+.stop > *{grid-column:2}
+.stop .n{grid-column:1;grid-row:1 / span 3;align-self:start;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--wash);color:var(--blue);font-weight:900;transition:background-color .2s ease,color .2s ease}
+.stop b{font-size:1.125rem;line-height:1.35}
+.stop span{color:var(--mute);font-size:.9375rem;line-height:1.5}
+.stop .navi{display:grid;margin:.35rem 0 .2rem;padding:.5rem .75rem;border-radius:12px;background:var(--sky);border:1px dashed var(--line)}
+.stop .navi small{font-size:.8125rem;font-weight:700;color:var(--blue)}
+.stop .navi strong{font-size:1.0625rem;color:var(--ink)}
+.stop .notice{display:block;margin-top:.5rem;padding:.55rem .75rem;border-radius:12px;background:#fff4cc;color:#6b4a00;font-size:.875rem;line-height:1.55}
+.stop[aria-current="true"]{border-color:var(--blue)}
+.stop[aria-current="true"] .n{background:var(--sun);color:var(--ink)}
+.route-film{margin:0 0 18px}
+.route-film video{display:block;width:100%;height:auto;border-radius:20px;border:1px solid var(--line);background:var(--wash)}
+.help{display:grid;margin-top:16px;border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:0 3px 10px rgba(17,20,24,.07)}
+.help-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:14px 18px}
+.help-row+.help-row{border-top:1px solid var(--line)}
+.help-row > b{flex:0 0 4.5rem;font-size:1.0625rem}
+.help-btns{display:flex;flex-wrap:wrap;gap:8px}
+.help-tel{flex:1 1 12rem;min-width:0;display:grid}
+.help-tel span{font-weight:800;font-size:1.25rem;letter-spacing:-.01em;font-variant-numeric:tabular-nums;user-select:all}
+.help-tel small{color:var(--mute)}
+.credit{margin:.5rem 0 0;font-size:.8125rem;color:var(--mute)}
+.route-ctl{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+
+/* ── 지도 연결 ── */
+.maplinks{grid-column:span 12;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;background:var(--card);border-radius:20px;padding:clamp(18px,3vw,28px)}
+.maplinks p{margin:0;min-width:0;color:var(--mute)}
+.maplinks p b{display:block;color:var(--ink);font-size:1.125rem}
+
+/* ── 연구 전체 보기 ── */
+.sec-top{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:end;justify-content:space-between;margin-bottom:clamp(20px,3vw,32px)}
+.sec-top .lead{margin:0}
+.sec-top > div{min-width:0;flex:1 1 auto}
+#lessons .lead,#summary .lead{max-width:none}
+.fold .mini{margin:0 1.5rem 1.5rem}
+.fold p{padding-bottom:1rem}
+.reader{position:fixed;inset:0;z-index:45;display:grid;place-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(17,20,24,.6);backdrop-filter:blur(6px)}
+.reader-box{display:grid;grid-template-rows:auto auto minmax(0,1fr);width:min(100%,920px);height:min(100%,860px);background:var(--card);border-radius:24px;overflow:hidden;animation:pop .35s cubic-bezier(.2,.7,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.98)}}
+.reader-head{display:flex;align-items:center;gap:12px;padding:16px clamp(16px,3vw,28px);border-bottom:1px solid var(--line)}
+.reader-head h2{flex:1 1 auto;min-width:0;margin:0;font-size:clamp(1.25rem,2.6vw,1.6rem)}
+.reader-tabs{display:flex;gap:6px;overflow-x:auto;padding:10px clamp(16px,3vw,28px);border-bottom:1px solid var(--line);background:var(--sky)}
+.reader-tabs .chip{flex:none;min-height:40px;font-size:.9375rem}
+.reader-body{overflow-y:auto;padding:8px clamp(16px,3vw,28px) 40px;scroll-behavior:smooth}
+.reader-body section{padding-block:24px;border-bottom:1px solid var(--line);scroll-margin-top:8px}
+.reader-body section:last-child{border-bottom:0}
+.reader-body h3{margin:0 0 .25rem;font-size:1.35rem;font-weight:900}
+.reader-body h3 small{display:block;font-size:.9375rem;font-weight:700;color:var(--blue)}
+.reader-body h4{margin:1.25rem 0 .25rem;font-size:1.0625rem;font-weight:700}
+.reader-body p{margin:0;max-width:65ch;color:var(--mute)}
+.bul{margin:.35rem 0 0;padding-left:1.15rem;color:var(--mute);line-height:1.7}
+.bul li{margin:.15rem 0}
+.bul li::marker{color:var(--blue)}
+.fold .bul{margin:0;padding:1rem 1.5rem 1rem 2.6rem;border-top:1px solid var(--line)}
+
+/* ── L.I.N.K. 소개 ── */
+.link-model{margin-bottom:16px;padding:clamp(20px,3.5vw,32px);background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 3px 10px rgba(17,20,24,.07)}
+.link-model h3{margin:0;font-size:clamp(1.25rem,2.6vw,1.6rem);font-weight:800;letter-spacing:-.03em}
+.link-model > p{margin:.15rem 0 1.25rem;color:var(--mute)}
+.link-tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.link-tiles li{min-width:0;display:grid;gap:.15rem;padding:1rem 1.1rem 1.15rem;border-radius:18px;background:var(--sky)}
+.link-tiles .lt{font-weight:800;font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;letter-spacing:-.04em;color:var(--blue)}
+.link-tiles b{font-size:1.125rem;line-height:1.35}
+.link-tiles li > span:last-child{font-size:.9375rem;color:var(--mute)}
+.link-tiles li.k{background:var(--ink);color:var(--card)}
+.link-tiles li.k .lt{color:var(--sun)}
+.link-tiles li.k > span:last-child{color:rgba(255,255,255,.72)}
+.task .ltr{display:inline-grid;place-items:center;width:1.7em;height:1.7em;margin-right:.45em;border-radius:7px;background:var(--ink);color:var(--sun);font-weight:800}
+
+/* ── L.I.N.K. 누르기 ── */
+.link-head{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:start;justify-content:space-between;margin-bottom:1.25rem}
+.link-head > div{min-width:0}
+.link-head p{margin:.15rem 0 0;color:var(--mute)}
+.link-tiles li{padding:0;background:none}
+.lk{width:100%;height:100%;display:grid;gap:.15rem;align-content:start;padding:1rem 1.1rem 1.15rem;border:2px solid transparent;border-radius:18px;background:var(--sky);font:inherit;color:inherit;text-align:left;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.lk:hover{transform:translateY(-4px);box-shadow:6px 8px 0 rgba(17,20,24,.12)}
+.lk .lt{font-weight:800;font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;letter-spacing:-.04em;color:var(--blue)}
+.lk b{font-size:1.125rem;line-height:1.35}
+.lk > span:last-child{font-size:.9375rem;color:var(--mute)}
+.lk[aria-pressed="true"]{border-color:var(--ink);box-shadow:6px 8px 0 rgba(17,20,24,.14)}
+.link-detail{margin-top:14px;padding:clamp(18px,3vw,26px);border-radius:18px;border:1px solid var(--line);background:var(--card)}
+.link-detail.swap{animation:swap .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes swap{from{opacity:0;transform:translateY(10px)}}
+.link-detail h4{margin:0;font-size:clamp(1.3rem,2.8vw,1.75rem);font-weight:800;letter-spacing:-.03em}
+.link-detail h4 .cap{color:var(--blue)}
+.link-detail .ko{margin:.1rem 0 .7rem;font-weight:700;color:var(--mute)}
+.link-detail p:last-child{margin:0;max-width:68ch;line-height:1.8}
+
+/* ── 운영 모델 그림 ── */
+.model-box{grid-template-rows:auto minmax(0,1fr);height:auto;max-height:100%}
+.mdl{display:grid;gap:10px;padding-block:18px 8px;text-align:center}
+.mdl b{font-weight:800;letter-spacing:-.02em}
+.mdl small{display:block;font-weight:700;font-size:.8125rem}
+.mdl-goal{padding:16px;border-radius:16px;background:var(--ink);color:var(--card)}
+.mdl-goal small{color:var(--sun)}
+.mdl-goal b{font-size:clamp(1.15rem,2.6vw,1.45rem)}
+.mdl-adv{display:grid;padding:14px;border-radius:16px;background:var(--wash);border:1px solid var(--line)}
+.mdl-adv b{font-size:clamp(1.15rem,2.6vw,1.4rem)}
+.mdl-adv span{color:var(--mute)}
+.mdl-up{height:22px;display:flex;justify-content:center;gap:30%}
+.mdl-up::before,.mdl-up i{content:"";width:14px;height:22px;background:var(--line);clip-path:polygon(50% 0,100% 45%,68% 45%,68% 100%,32% 100%,32% 45%,0 45%)}
+.mdl-up.three::before{display:none}
+.mdl-links{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mdl-links li{min-width:0;display:grid;align-content:start;justify-items:center;gap:.2rem;padding:16px 12px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.mdl-links small{color:var(--mute)}
+.mdl-links b{font-size:1rem;line-height:1.45;text-wrap:balance}
+.ml{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--blue);color:var(--card);font-weight:800;font-size:1.5rem;line-height:1}
+.mdl-key{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr) minmax(0,1fr);gap:10px;align-items:stretch;margin-top:6px}
+.mdl-key .side{margin:0;display:grid;place-items:center;padding:12px;border-radius:16px;background:var(--sky);border:1px dashed var(--line);font-weight:700;line-height:1.45}
+.mdl-key .key{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;background:var(--sun);text-align:left}
+.mdl-key .key .ml{flex:none;background:var(--ink);color:var(--sun)}
+.mdl-key .key b{font-size:1.0625rem;line-height:1.45}
+.mdl-base{padding:14px;border-radius:16px;background:var(--ink);color:var(--card);font-weight:800;font-size:clamp(1rem,2.2vw,1.2rem)}
+@media (max-width:640px){
+  .mdl-links{grid-template-columns:minmax(0,1fr)}
+  .mdl-links li{grid-template-columns:auto minmax(0,1fr);justify-items:start;text-align:left;column-gap:12px}
+  .mdl-links li .ml{grid-row:span 2}
+  .mdl-key{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .mdl-key .key{grid-column:1 / -1;order:-1}
+  .mdl-up.three{gap:0}.mdl-up.three i+i{display:none}
+}
+
+/* ── 효과 ── */
+.bar{position:fixed;top:0;left:0;z-index:40;width:100%;height:4px;background:var(--blue);transform-origin:0 50%;transform:scaleX(0)}
+.title-card{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes rise{from{opacity:0;transform:translateY(44px)}}
+.rv{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.wait{opacity:.25;transform:translateY(30px)}
+.btn{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,color .18s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(17,20,24,.5)}
+.shot img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:scale(1.03)}
+.plan li{transition:background-color .2s ease}
+.plan li:hover{background:var(--wash)}
+
+/* ── 연구 요약 ── */
+.tasks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.task{min-width:0;background:var(--card);border-radius:24px;overflow:hidden;box-shadow:0 0 0 1px var(--line);transition:box-shadow .2s ease,transform .2s ease}
+.task:hover{transform:translateY(-4px);box-shadow:0 0 0 2px var(--blue),0 18px 36px -22px rgba(17,20,24,.5)}
+.task > button{display:grid;gap:.35rem;width:100%;padding:1.5rem 1.5rem 1.25rem;border:0;background:none;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.task .no{font-weight:900;color:var(--blue)}
+.task h3{margin:0;font-size:1.25rem;font-weight:700;line-height:1.4;text-wrap:balance;min-height:2.8em}
+.task .more{margin-top:.5rem;font-weight:700;font-size:.9375rem;color:var(--mute)}
+.task .more::after{content:" +"}
+.task.open .more::after{content:" −"}
+.fold{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1)}
+.task.open .fold{grid-template-rows:1fr}
+.fold > div{overflow:hidden;min-height:0}
+.fold p{margin:0;padding:1rem 1.5rem 1.5rem;border-top:1px solid var(--line);color:var(--mute)}
+
+/* ── 겉모습: 종이, 먹색, 알약, 노랑 채움 ── */
+header{position:relative;overflow:clip}
+.glow{position:absolute;left:50%;top:38%;z-index:-1;width:min(80vw,860px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--blue);opacity:.13;filter:blur(110px);pointer-events:none}
+h1{font-weight:800;font-size:clamp(2.3rem,7.2vw,5rem);line-height:1.08;letter-spacing:-.05em}
+h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.1rem);line-height:1.12;letter-spacing:-.045em}
+.plan time,.lessons .cls{letter-spacing:-.03em}
+.title-card{border:1px solid var(--line);box-shadow:10px 12px 0 rgba(17,20,24,.12)}
+.plan,.lessons,.apply,.maplinks,.stop,.task,.shot,.route-map{border:1px solid var(--line);box-shadow:0 3px 10px rgba(17,20,24,.07)}
+.stop{border-width:1px}
+.stop[aria-current="true"]{border-color:var(--ink);box-shadow:5px 6px 0 rgba(17,20,24,.12)}
+.task:hover{transform:translateY(-4px);box-shadow:8px 10px 0 rgba(17,20,24,.12)}
+.shot:hover{box-shadow:8px 10px 0 rgba(17,20,24,.12)}
+.task .no,.facts dt,.reader-body h3 small{color:var(--blue)}
+/* 단추: 먹색 알약, 올리면 노랑 */
+.btn{border:1px solid transparent}
+.btn-go{background:var(--ink);color:var(--card)}
+.btn-line{background:var(--card);border-color:var(--line);color:var(--ink)}
+.btn-go:hover,.btn-line:hover{background:var(--sun);border-color:var(--ink);color:var(--ink);transform:translateY(-2px) scale(1.03);box-shadow:0 7px 22px rgba(17,20,24,.2)}
+.chip,.mini{transition:background-color .15s ease,border-color .15s ease,color .15s ease,transform .15s ease}
+.chip:hover,.mini:hover,.mini.fill:hover{background:var(--sun);border-color:var(--ink);color:var(--ink);transform:scale(1.05)}
+.mini.fill{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.nav{background:rgba(243,242,237,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav a{transition:background-color .15s ease}
+.nav a:hover{background:var(--sun);color:var(--ink)}
+.plan li:hover{background:var(--sky)}
+.bar{background:var(--ink)}
+/* 영상·그림 위의 유리 딱지 */
+.hero-media-box{position:relative}
+.glass,.shot .tag,.pin-tag{background:rgba(255,255,255,.72);color:var(--ink);border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 3px 10px rgba(17,20,24,.12)}
+.glass{position:absolute;left:max(var(--gutter),calc((100% - var(--wide))/2 + var(--gutter)));top:clamp(12px,2vw,22px);max-width:calc(100% - 2*var(--gutter));margin:0;padding:.4rem 1rem;border-radius:999px;font-weight:700;font-size:clamp(.8125rem,1.4vw,.9375rem)}
+/* 흐르는 장면 띠 */
+.reel{overflow:hidden;margin-top:clamp(28px,4vw,44px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.reel-track{display:flex;gap:14px;width:max-content;animation:reel 115s linear infinite}
+.reel:hover .reel-track{animation-play-state:paused}
+.reel img{flex:none;height:clamp(130px,15vw,190px);width:auto;max-width:none;border-radius:18px;border:1px solid var(--line);transition:transform .3s ease}
+.reel img:hover{transform:scale(1.04) rotate(-1deg)}
+@keyframes reel{to{transform:translateX(calc(-50% - 7px))}}
+
+/* ── 휴대폰 누름 반응: 마우스가 없는 기기에서는 누르는 순간 반응 ── */
+button,a,.lk,.stop,.shot,.chip,.mini{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.btn:active,.chip:active,.mini:active,.nav a:active,.vbtn:active{background:var(--sun);border-color:var(--ink);color:var(--ink);transform:scale(.96)}
+.lk:active,.stop:active,.task:active,.shot:active{transform:scale(.97)}
+.pin:active{transform:translate(-50%,-50%) scale(1.15)}
+@media (hover:none){
+  .btn:hover,.chip:hover,.mini:hover,.mini.fill:hover,.nav a:hover,.lk:hover,.task:hover,.shot:hover,.stop:hover{transform:none;box-shadow:none}
+  .btn-go:hover{background:var(--ink);color:var(--card);border-color:transparent}
+  .btn-line:hover,.chip:hover,.mini:hover{background:var(--card);border-color:var(--line);color:var(--ink)}
+  .mini.fill:hover{background:var(--ink);border-color:var(--ink);color:var(--card)}
+  .nav a:hover{background:none}
+  .shot:hover img{transform:none}
+  .btn:active,.chip:active,.mini:active,.mini.fill:active,.nav a:active{background:var(--sun);border-color:var(--ink);color:var(--ink);transform:scale(.96)}
+  .lk:active,.stop:active,.task:active,.shot:active{transform:scale(.97)}
+}
+
+@media (max-width:760px){
+  .tasks{grid-template-columns:minmax(0,1fr)}
+  .task h3{min-height:0}
+  .link-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lk .lt{font-size:2.2rem}
+  .route{grid-template-columns:minmax(0,1fr)}
+  .pin-tag{display:none}
+  .glass{border-radius:16px}
+  .pin{width:26px;height:26px;border-width:2px;font-size:.8125rem}
+  .pin[aria-current="true"]{transform:translate(-50%,-50%) scale(1.2)}
+  .r-leg{stroke-width:5}.r-glow{stroke-width:8}.r-all{stroke-width:3}
+  .lessons li{grid-template-columns:minmax(0,1fr)}
+  .nav b{display:none}
+  .nav ul{margin-left:0}
+  .hero-media-box{aspect-ratio:4/3}
+  .hero-media{object-position:62% 50%}
+  .plan li{grid-template-columns:minmax(0,1fr)}
+  .shot-main,.shot-annex{grid-column:span 12}
+  .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){.hero-media,.title-card{animation:none}.rv,.btn,.shot img,.task,.fold,.pin,.stop,.lk,.chip,.mini,.reel img{transition:none}.reel-track{animation:none}.r-leg.draw,.pin[aria-current="true"]::after,.reader-box{animation:none}.rv.wait{opacity:1;transform:none}}
+</style>
+</head><body>
+
+
+<div class="bar" id="bar" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="구역 바로가기">
+  <div class="wrap nav-in">
+    <b>변화와 열정으로 함께 성장하는 행복학교</b>
+    <ul>
+      <li><a href="#schedule">일정</a></li>
+      <li><a href="#route">동선</a></li>
+      <li><a href="#lessons">공개수업</a></li>
+      <li><a href="#summary">연구 요약</a></li>
+      <li><a href="#map">안내도</a></li>
+      <li><a href="#apply">참석 신청</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="hero-media-box">
+    <p class="glass">2026학년도 강원특별자치도교육청 지정 통합교육 연구학교(2/2)</p>
+    <video class="hero-media" src="hero.mp4" poster="hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="드론으로 찍은 양구초등학교 전경. 운동장 위로 떠오르며 본관과 뒤편 마을, 산이 차례로 보인다."></video>
+    </div>
+  <div class="wrap">
+    <div class="title-card">
+      <h1>양구초등학교<br>연구학교 운영 보고회</h1>
+      <p class="theme">L.I.N.K. 프로그램을 통한 개별 맞춤형 통합교육 내실화 방안</p>
+      <dl class="facts">
+        <div><dt>일시</dt><dd>2026. 11. 6.(금) 13:00~15:20</dd></div>
+        <div><dt>장소</dt><dd>양구초등학교, 버드나무 예술창고</dd></div>
+      </dl>
+      <div class="cta">
+        <a class="btn btn-go" href="#apply">참석 신청하기</a>
+        <a class="btn btn-line" href="#lessons">공개수업 보기</a>
+      </div>
+    </div>
+  </div>
+  <div class="reel" aria-hidden="true"><div class="reel-track"><img src="photo-15.jpg" alt="" width="570" height="380" loading="lazy"><img src="photo-05.jpg" alt="" width="675" height="380" loading="lazy"><img src="photo-13.jpg" alt="" width="675" height="380" loading="lazy"><img src="photo-01.jpg" alt="" width="570" height="380" loading="lazy"><img src="photo-08.jpg" alt="" width="675" height="380" loading="lazy"><img src="photo-14.jpg" alt="" width="621" height="380" loading="lazy"><img src="photo-07.jpg" alt="" width="507" height="380" loading="lazy"><img src="photo-20.jpg" alt="" width="636" height="380" loading="lazy"><img src="photo-12.jpg" alt="" width="570" height="380" loading="lazy"><img src="photo-06.jpg" alt="" width="675" height="380" loading="lazy"><img src="photo-21.jpg" alt="" width="507" height="380" loading="lazy"><img src="photo-19.jpg" alt="" width="512" height="380" loading="lazy"><img src="photo-17.jpg" alt="" width="521" height="380" loading="lazy"><img src="photo-22.jpg" alt="" width="605" height="380" loading="lazy"><img src="photo-04.jpg" alt="" width="507" height="380" loading="lazy"><img src="photo-15.jpg" alt="" width="570" height="380" loading="lazy"><img src="photo-05.jpg" alt="" width="675" height="380" loading="lazy"><img src="photo-13.jpg" alt="" width="675" height="380" loading="lazy"><img src="photo-01.jpg" alt="" width="570" height="380" loading="lazy"><img src="photo-08.jpg" alt="" width="675" height="380" loading="lazy"><img src="photo-14.jpg" alt="" width="621" height="380" loading="lazy"><img src="photo-07.jpg" alt="" width="507" height="380" loading="lazy"><img src="photo-20.jpg" alt="" width="636" height="380" loading="lazy"><img src="photo-12.jpg" alt="" width="570" height="380" loading="lazy"><img src="photo-06.jpg" alt="" width="675" height="380" loading="lazy"><img src="photo-21.jpg" alt="" width="507" height="380" loading="lazy"><img src="photo-19.jpg" alt="" width="512" height="380" loading="lazy"><img src="photo-17.jpg" alt="" width="521" height="380" loading="lazy"><img src="photo-22.jpg" alt="" width="605" height="380" loading="lazy"><img src="photo-04.jpg" alt="" width="507" height="380" loading="lazy"></div></div>
+</header>
+
+<main class="wrap">
+  <section class="sec motto" data-rv aria-label="통합교육에 대한 생각">
+    <p class="motto-tag">L.I.N.K. · INCLUSIVE EDUCATION</p>
+    <blockquote><p>“같은 교실에 있는 것을 넘어,<br class="br-m"> 서로의 배움 속에 존재하는 것.”</p></blockquote>
+    <p class="motto-sub">통합교육의 완성은 장애학생이 교실에 함께 있다는 사실이 아니라,<br class="br-pc"> 그 학생의 존재가 교실의 배움에서 의미를 갖는 데 있습니다.</p>
+  </section>
+
+  <section class="sec" id="schedule" data-rv>
+    <h2>보고회 일정</h2>
+    <p class="lead">등록부터 보고회까지 두 시간 남짓 걸립니다.</p>
+    <ol class="plan">
+      <li><time>13:00~13:20</time><b>등록 및 안내</b><span>본관 1층 도서관</span></li>
+      <li><time>13:20~14:00</time><b>수업 공개</b><span>학년별 교실</span></li>
+      <li><time>14:00~14:20</time><b>이동 및 휴식</b><span>버드나무 예술창고로 이동</span></li>
+      <li><time>14:20~15:20</time><b>연구학교 운영 보고회</b><span>버드나무 예술창고</span></li>
+    </ol>
+  </section>
+
+  <section class="sec" id="route" data-rv>
+    <h2>오셔서 움직이는 길</h2>
+    <p class="lead">순서를 누르면 그 구간의 길이 그려집니다.</p>
+    <div class="route">
+      <div>
+        <div class="route-map" id="route-map">
+          <img src="route.jpg" alt="양구초등학교 주변 위성 사진. 길 건너 공영주차장에서 후문을 지나 본관 도서관과 교실로, 다시 후문으로 나가 버드나무 예술창고로 가는 길을 표시했다." width="1580" height="602">
+          <svg viewBox="0 0 1580 602" preserveAspectRatio="none" aria-hidden="true">
+            <path class="r-glow" id="r-glow"></path>
+            <path class="r-all" id="r-all"></path>
+            <path class="r-leg" id="r-leg"></path>
+          </svg>
+        </div>
+        <div class="route-ctl">
+          <button class="mini fill" type="button" id="route-play">처음부터 이어 보기</button>
+          <button class="mini" type="button" id="route-next">다음 순서</button>
+        </div>
+        <p class="credit">위성 사진: Google Earth</p>
+        <div class="help">
+          <div class="help-row">
+            <b>길 찾기</b>
+            <div class="help-btns">
+              <a class="mini fill" href="https://map.naver.com/p/search/%EA%B0%95%EC%9B%90%20%EC%96%91%EA%B5%AC%EC%9D%8D%20%EC%A4%91%EC%8B%AC%EB%A1%9C%20126" target="_blank" rel="noopener">네이버 지도</a>
+              <a class="mini fill" href="https://map.kakao.com/?q=%EA%B0%95%EC%9B%90%20%EC%96%91%EA%B5%AC%EC%9D%8D%20%EC%A4%91%EC%8B%AC%EB%A1%9C%20126" target="_blank" rel="noopener">카카오맵</a>
+            </div>
+          </div>
+          <div class="help-row">
+            <b>문의</b>
+            <div class="help-tel"><span id="tel">033-481-0585</span><small>연구학교 담당(교사 이영직)</small></div>
+            <button class="mini" type="button" id="tel-copy">번호 복사</button>
+          </div>
+        </div>
+      </div>
+      <ol class="stops" id="stops"></ol>
+    </div>
+  </section>
+
+  <section class="sec" id="lessons" data-rv>
+    <h2>공개수업 안내</h2>
+    <p class="lead">AI·에듀테크를 활용해 모든 학생이 자신에게 맞는 방식으로 참여하는 보편적 학습설계(UDL) 수업을 공개합니다.</p>
+    <ul class="legend"><li><span class="star">★</span>통합학급</li><li><span class="badge-co">협력수업</span>특수교사와 일반교사가 함께 하는 수업</li></ul>
+    <div class="chips" id="chips" role="group" aria-label="학년 고르기"></div>
+    <ul class="lessons" id="lessons-list"></ul>
+  </section>
+
+  <section class="sec" id="summary" data-rv>
+    <div class="sec-top">
+      <div>
+        <h2>연구 한눈에 보기</h2>
+        <p class="lead">과제를 누르면 요약이 펼쳐집니다. 과제별 실천 내용과 검증 방법은 전체 보기에서 볼 수 있습니다.</p>
+      </div>
+      <button class="btn btn-line" type="button" data-read="r-model">연구 전체 보기</button>
+    </div>
+    <div class="link-model">
+      <div class="link-head">
+        <div>
+          <h3>L.I.N.K. Advanced 운영 모델</h3>
+          <p>수업·평가·학교문화를 하나의 흐름으로 연결합니다. 글자를 클릭해 보세요.</p>
+        </div>
+        <button class="mini" type="button" id="model-open">모델 그림 보기</button>
+      </div>
+      <ol class="link-tiles" id="link-tiles">
+        <li><button type="button" class="lk" data-k="L" aria-pressed="true" aria-controls="link-detail"><span class="lt">L</span><b>수업 고도화</b><span>AI·UDL</span></button></li>
+        <li><button type="button" class="lk" data-k="I" aria-pressed="false" aria-controls="link-detail"><span class="lt">I</span><b>평가 정교화</b><span>대안평가 확장</span></button></li>
+        <li><button type="button" class="lk" data-k="N" aria-pressed="false" aria-controls="link-detail"><span class="lt">N</span><b>문화 확산</b><span>공감 생태계</span></button></li>
+        <li><button type="button" class="lk" data-k="K" aria-pressed="false" aria-controls="link-detail"><span class="lt">K</span><b>보편적 접근</b><span>세 과제의 목표</span></button></li>
+      </ol>
+      <div class="link-detail" id="link-detail" aria-live="polite">
+        <h4><span class="cap">L</span>everaging AI-Tech</h4>
+        <p class="ko">AI·에듀테크를 학습 장벽을 낮추는 지렛대로 활용</p>
+        <p class="body">에듀테크를 단순한 보조 도구가 아닌, 학습 장벽을 낮추고 개별 학생의 성장을 견인하는 ‘지렛대(Leverage)’로 활용하여 UDL 수업을 상시 운영하였다. 이를 통해 통합교육이 교사 개인의 노력에 의존하지 않도록 구조화하고, 학습 격차를 완화하는 방향으로 수업을 고도화하였다.</p>
+        <p class="to">연구과제 1. AI·에듀테크 기반 보편적 학습설계 수업 운영</p>
+      </div>
+    </div>
+    <div class="tasks">
+      <div class="task"><button type="button" aria-expanded="false" aria-controls="t1"><span class="no">연구과제 1</span><h3>AI·에듀테크 기반 보편적 학습설계 수업 운영</h3><span class="more">요약 보기</span></button><div class="fold" id="t1"><div><ul class="bul"><li>AI·에듀테크 기반 UDL 실천 역량 강화</li><li>AI·에듀테크 기반 UDL 수업 설계 고도화 및 수업 자료 개발</li><li>통합학급 참여 중심 UDL 수업 적용과 운영</li></ul><button class="mini" type="button" data-read="r-task1">전체 보기에서 이어 읽기</button></div></div></div>
+      <div class="task"><button type="button" aria-expanded="false" aria-controls="t2"><span class="no">연구과제 2</span><h3>정당한 평가의 실제 적용 및 일반화</h3><span class="more">요약 보기</span></button><div class="fold" id="t2"><div><ul class="bul"><li>평가 자료의 재구성 및 현장 적용 자료 확장</li><li>대안평가 운영 체계 구축</li><li>대안평가의 적용과 일반화</li></ul><button class="mini" type="button" data-read="r-task2">전체 보기에서 이어 읽기</button></div></div></div>
+      <div class="task"><button type="button" aria-expanded="false" aria-controls="t3"><span class="no">연구과제 3</span><h3>장애공감 문화의 성장과 확산</h3><span class="more">요약 보기</span></button><div class="fold" id="t3"><div><ul class="bul"><li>교육과정과 연계한 장애공감 교육의 지속 운영</li><li>학생이 이끌고 만드는 장애공감 실천 활동의 심화</li><li>가정·교사·지역사회로의 장애공감 문화 확산</li></ul><button class="mini" type="button" data-read="r-task3">전체 보기에서 이어 읽기</button></div></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="map" data-rv>
+    <h2>학교 안내도</h2>
+    <p class="lead">그림을 누르면 크게 열립니다. 두 손가락이나 마우스 휠로 확대하고, 끌어서 옮길 수 있습니다.</p>
+    <div class="maps">
+      <button class="shot" type="button" data-src="map.jpg" data-title="전체 조감도">
+        <img src="map.jpg" alt="양구초등학교 전체 조감도. 정문, 본관, 별관, 체육관, 운동장, 후문, 공사장 위치가 표시되어 있다." width="1920" height="1080">
+        <span class="tag">눌러서 확대</span>
+      </button>
+      <h3>층별 안내</h3>
+      <button class="shot shot-main" type="button" data-src="floor-main.jpg" data-title="본관 층별 안내">
+        <img src="floor-main.jpg" alt="본관 층별 안내. 1층에 2학년 교실·도서관·교무실, 2층에 6학년과 3학년 교실·과학실·컴퓨터실, 3층에 5학년과 4학년 교실이 있다." width="1943" height="707">
+        <span class="tag">눌러서 확대</span>
+      </button>
+      <button class="shot shot-annex" type="button" data-src="floor-annex.jpg" data-title="별관 층별 안내">
+        <img src="floor-annex.jpg" alt="별관 층별 안내. 1층에 유치원과 돌봄교실, 2층에 1학년 교실과 영어전담실이 있다." width="1382" height="708">
+        <span class="tag">눌러서 확대</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="sec" id="apply" data-rv>
+    <div class="apply">
+      <div>
+        <h2>참석 신청</h2>
+        <p>아래 주소나 QR코드로 신청해 주십시오.</p>
+        <p class="apply-url">https://gw1.kr/r0ay6</p>
+        <a class="btn btn-go" href="https://gw1.kr/r0ay6" target="_blank" rel="noopener">참석 신청하기</a>
+      </div>
+      <img class="qr" src="qr.png" alt="참석 신청 주소(https://gw1.kr/r0ay6)로 연결되는 QR코드" width="400" height="400">
+    </div>
+  </section>
+</main>
+
+<footer class="end wrap">
+  <div class="notice-box">
+    <h2>이용 안내</h2>
+    <ul>
+      <li>이 누리집은 운영 보고회 안내를 위해 만들었으며, 방문자의 개인정보를 수집하거나 저장하지 않습니다.</li>
+      <li>참석 신청은 강원특별자치도교육청 참가신청 누리집에서 받습니다.</li>
+      <li>공개수업 지도안과 연구 자료는 보고회 참관과 수업 연구를 위해서만 활용해 주시고, 무단 복제나 재배포는 삼가 주십시오.</li>
+      <li>사진 속 학생의 얼굴과 이름은 보호를 위해 가렸습니다. 사진을 내려받거나 다른 곳에 게시하지 말아 주십시오.</li>
+    </ul>
+  </div>
+  <p>양구초등학교 · 2026학년도 강원특별자치도교육청 지정 통합교육 연구학교 · 문의 033-481-0585</p>
+</footer>
+
+<div class="reader" id="model" role="dialog" aria-modal="true" aria-labelledby="model-title" hidden>
+  <div class="reader-box model-box">
+    <div class="reader-head"><h2 id="model-title">L.I.N.K. Advanced 운영 모델</h2><button class="mini" type="button" id="model-close">닫기</button></div>
+    <div class="reader-body">
+      <div class="mdl">
+        <div class="mdl-goal"><small>연구 목표</small><b>개별 맞춤형 통합교육 내실화 달성</b></div>
+        <div class="mdl-up" aria-hidden="true"></div>
+        <div class="mdl-adv"><b>L.I.N.K. Advanced</b><span>모델 고도화 및 현장 실천을 중심으로</span></div>
+        <div class="mdl-up three" aria-hidden="true"><i></i><i></i><i></i></div>
+        <ol class="mdl-links">
+          <li><span class="ml">L</span><small>1st LINK</small><b>AI·에듀테크 기반 보편적 학습설계 수업 운영</b></li>
+          <li><span class="ml">I</span><small>2nd LINK</small><b>정당한 평가의 실제 적용 및 일반화</b></li>
+          <li><span class="ml">N</span><small>3rd LINK</small><b>장애공감 문화의 성장과 확산</b></li>
+        </ol>
+        <div class="mdl-key">
+          <p class="side">실행 성과의<br>체계적 통합</p>
+          <div class="key"><span class="ml">K</span><div><small>보편적 접근의 열쇠</small><b>지속 가능한 개별 맞춤형 통합교육 모델 정립</b></div></div>
+          <p class="side">적용 가능 모델의<br>현장 확산</p>
+        </div>
+        <div class="mdl-base">혼합연구 기반 효과 검증 및 모델 정립</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="reader-title" hidden>
+  <div class="reader-box">
+    <div class="reader-head"><h2 id="reader-title">연구 전체 보기</h2><button class="mini" type="button" id="reader-close">닫기</button></div>
+    <div class="reader-tabs" id="reader-tabs" role="group" aria-label="읽을 곳 고르기"></div>
+    <div class="reader-body" id="reader-body">
+      <section id="r-model" data-tab="운영 모델"><h3>L.I.N.K. Advanced 운영 모델</h3><div class="mdl-slot"></div></section>
+      <section id="r-task1" data-tab="과제 1"><h3><small>연구과제 1</small>AI·에듀테크 기반 보편적 학습설계 수업 운영</h3>
+        <h4>가. AI·에듀테크 기반 UDL 실천 역량 강화</h4><ul class="bul"><li>통합교육·장애인식 개선 패키지 연수, 실천형 인증제 연수 'UDL 31 챌린지' 운영</li><li>자료 제작·수업 설계·평가를 다룬 전문가 초청 역량 강화 연수(3회)</li><li>교사동아리 'Vibe-Ed' 운영, 에듀테크 기반 UDL 스테이션 수업 모형 탐색</li><li>생성형 AI 활용 연구 윤리 연수 및 학급별 디지털 윤리교육</li></ul>
+        <h4>나. AI·에듀테크 기반 UDL 수업 설계 고도화 및 수업 자료 개발</h4><ul class="bul"><li>1년 차 6단계 수업 절차에서 K-PAL 모형으로 설계 절차 고도화</li><li>학습자·상황 분석 조사지 개발로 학습 장벽 분석 체계화</li><li>교수·학습과정안 양식 개정 및 작성 해설서 개발</li><li>학습 장벽에 맞춘 AI·에듀테크 수업 자료 개발(관용 표현 학습 게임, 도자기 증강현실 자료 등)</li></ul>
+        <h4>다. 통합학급 참여 중심 UDL 수업 적용과 운영</h4><ul class="bul"><li>심층 사례: 6학년 미술과 도자기 수업(K-PAL 단계별 설계·실행)</li><li>1~6학년 평소 수업에서 UDL 수업 상시 운영</li><li>수업 나눔 평가회, 챌린지 질문과 해결 방안, L.I.N.K. 아카이브를 통한 실천 공유</li></ul></section>
+      <section id="r-task2" data-tab="과제 2"><h3><small>연구과제 2</small>정당한 평가의 실제 적용 및 일반화</h3>
+        <h4>가. 평가 자료의 재구성 및 현장 적용 자료 확장</h4><ul class="bul"><li>교과별 분과 '더배움공동체' 조직(초등 공통교육과정 11개 교과)</li><li>국립특수교육원 평가 자료의 구성 분석 및 개발 방향 설정</li><li>기존 개발 7개 교과의 풀(pool)과 참고자료 수정·보완</li><li>미개발 4개 교과(도덕·영어·실과·통합교과) 평가지원자료 신규 개발</li></ul>
+        <h4>나. 대안평가 운영 체계 구축</h4><ul class="bul"><li>문헌 검토를 바탕으로 대안평가 유형과 대상자 판단 기준 마련</li><li>학생 정보 수집부터 심의·기록까지 학기별 대안평가 운영 절차 수립</li><li>학업성적관리규정 대안평가 조항 신설 및 특수교육대상학생 평가계획 수립</li></ul>
+        <h4>다. 대안평가의 적용과 일반화</h4><ul class="bul"><li>가상 학생 견본으로 서식 간 연계 사전 점검</li><li>공통 안내와 교사별 면담으로 개별화교육계획 작성 지원</li><li>2026학년도 2학기 특수교육대상학생 전원 대안평가 절차 적용</li><li>흐름도·서식·체크리스트·작성 안내를 묶은 일반화 자료 개발</li></ul></section>
+      <section id="r-task3" data-tab="과제 3"><h3><small>연구과제 3</small>장애공감 문화의 성장과 확산</h3>
+        <h4>가. 교육과정과 연계한 장애공감 교육의 지속 운영</h4><ul class="bul"><li>장애인의 날 진로교육과 학급별 체험 활동 연계</li><li>주제중심 통합교육 주간(L.I.N.K. Together Day): 학년별 교육과정 재구성, 전 학년 공동 결과물 창작·전시</li><li>여름방학 영어캠프 연계 다양성 존중·장애공감 수업</li></ul>
+        <h4>나. 학생이 이끌고 만드는 장애공감 실천 활동의 심화</h4><ul class="bul"><li>공감 서포터즈·방송반 주도 학교 단위 실천 활동(공감 챌린지, 공감 지수 측정기 등)</li><li>6학년 쉬운 글 프로젝트: 가정통신문을 쉬운 글로 바꾸기</li><li>학교 공간에 맞춘 보완대체의사소통(AAC) 판 제작·활용</li></ul>
+        <h4>다. 가정·교사·지역사회로의 장애공감 문화 확산</h4><ul class="bul"><li>통합교육 안내 팸플릿 배부, 학부모 공감 원데이 클래스 운영</li><li>통합학급을 처음 맡는 교사를 위한 '통합학급 교사 첫걸음' 웹사이트 제작</li><li>청소년 단체 나눔장터 운영 및 장애인 단체 기부</li></ul></section>
+      <section id="r-verify" data-tab="연구 검증"><h3>연구 검증</h3><ul class="bul"><li>과제 1: 양적 검증 후 질적 검증으로 해석하는 혼합연구(일반학생 수업 참여도 설문, 특수교육대상학생 관찰 평정, 교사 면담·FGI)</li><li>과제 2: 교사 면담을 통한 대안평가 운영 과정 분석</li><li>과제 3: 학생 서술형 응답·면담, 교사 FGI, 학부모 면담 주제분석</li></ul></section>
+      <section id="r-result" data-tab="연구 결과"><h3>연구 결과</h3><ul class="bul"><li>수업: 참여 방식과 조건의 확대에 따른 수업 참여의 변화 확인</li><li>평가: 학교 평가 체계 안에서 대안평가 절차의 작동 확인</li><li>문화: 학교생활 속 공감 행동과 학생 주도 실천의 양상 확인</li><li>세부 결과와 해석은 운영 보고회에서 공개</li></ul></section>
+    </div>
+  </div>
+</div>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title" hidden>
+  <div class="viewer-bar">
+    <b id="viewer-title"></b>
+    <button class="vbtn" type="button" id="v-out" aria-label="축소">−</button>
+    <button class="vbtn" type="button" id="v-in" aria-label="확대">+</button>
+    <button class="vbtn" type="button" id="v-fit">화면에 맞춤</button>
+    <button class="vbtn" type="button" id="v-close">닫기</button>
+  </div>
+  <div class="stage" id="stage"><img id="v-img" alt="" draggable="false"><div class="hl" id="v-hl" hidden></div></div>
+</div>
+
+<script>
+(function(){
+  /* 공개수업 목록: 이 표만 고치면 됩니다.
+     지도안은 docs 폴더에 '학년-반.pdf'(예: docs/3-1.pdf) 이름으로 올리기만 하면 단추가 저절로 켜집니다.
+     다른 이름을 쓰고 싶을 때만 file에 경로를 적습니다(예: file:'docs/3학년1반_지도안.pdf'). */
+  var LESSONS = [
+    /* inclusive:true → 통합학급 ★, co:true → 협력수업 */
+    { grade:1, cls:1, subject:'통합(상상)', topic:'새로운 동물이 나타난다면', room:'별관 2층', where:'annex', file:'' },
+    { grade:1, cls:2, subject:'수학', topic:'규칙을 만들어 볼까요', room:'별관 2층', where:'annex', file:'' },
+    { grade:2, cls:2, co:true, inclusive:true, subject:'통합(물건)', topic:'나도 돕고 싶어요', room:'본관 1층', where:'main', file:'' },
+    { grade:2, cls:3, inclusive:true, subject:'통합(물건)', topic:'발명왕이 되고 싶어요', room:'본관 1층', where:'main', file:'' },
+    { grade:2, cls:4, subject:'통합(물건)', topic:'어떤 어려움이 있을까요', room:'본관 1층', where:'main', file:'' },
+    { grade:3, cls:1, inclusive:true, subject:'사회', topic:'옛날 사람들이 이용했던 교통수단 알아보기', room:'본관 2층', where:'main', file:'' },
+    { grade:3, cls:4, subject:'수학', topic:'분모가 같은 분수의 크기를 비교해 볼까요', room:'본관 2층', where:'main', file:'' },
+    { grade:4, cls:5, subject:'국어', topic:'의견과 이유가 드러나게 제안하는 글 쓰기', room:'본관 3층', where:'main', file:'' },
+    { grade:5, cls:3, inclusive:true, subject:'사회', topic:'조선의 발전에 따른 사람들의 생활 모습 알아보기', room:'본관 3층', where:'main', file:'' },
+    { grade:6, cls:1, subject:'국어', topic:'고유어의 가치를 알고 활용하기', room:'본관 2층', where:'main', file:'' },
+    { grade:6, cls:3, subject:'수학', topic:'비의 성질 알아보기', room:'본관 2층', where:'main', file:'' }
+  ];
+  /* 층별 안내도 그림 위 교실 자리 (가로·세로 픽셀) */
+  var ROOMS = {
+    '1-1':[533,257,659,355], '1-2':[910,257,1035,355],
+    '2-2':[571,537,676,635], '2-3':[466,537,571,635], '2-4':[314,537,418,635],
+    '3-1':[1539,377,1642,475], '3-4':[1036,377,1140,475],
+    '4-5':[1283,224,1388,322], '5-3':[826,224,931,322],
+    '6-1':[931,377,1036,475], '6-3':[676,377,781,475]
+  };
+  var chips = document.getElementById('chips'), list = document.getElementById('lessons-list'), pick = 0, FOUND = {};
+  function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function drawLessons(){
+    list.textContent = '';
+    var rows = LESSONS.filter(function(l){ return !pick || l.grade === pick; });
+    if (!rows.length){ var li0 = el('li'); li0.appendChild(el('span', 'none', '이 학년은 공개수업이 없습니다.')); list.appendChild(li0); return; }
+    rows.forEach(function(l){
+      var li = el('li'), what = el('div', 'what'), acts = el('div', 'acts');
+      var cl = el('span', 'cls', l.grade + '학년 ' + l.cls + '반'); if (l.inclusive){ var st = el('span', 'star', '★'); st.title = '통합학급'; cl.appendChild(st); } li.appendChild(cl);
+      var tb = el('b', l.topic ? '' : 'pending', l.topic || '수업 주제는 정해지는 대로 안내합니다'); if (l.co){ tb.appendChild(document.createTextNode(' ')); tb.appendChild(el('span', 'badge-co', '협력수업')); } what.appendChild(tb);
+      what.appendChild(el('span', '', l.room + ' ' + l.grade + '-' + l.cls + ' 교실' + (l.subject ? ' · ' + l.subject : '')));
+      var loc = el('button', 'mini', '교실 위치'); loc.type = 'button'; loc.dataset.where = l.where; loc.dataset.room = l.grade + '-' + l.cls; acts.appendChild(loc);
+      var f = FOUND[l.grade + '-' + l.cls];
+      if (f){
+        var v = el('a', 'mini fill', '지도안 보기'); v.href = f; v.target = '_blank'; v.rel = 'noopener'; acts.appendChild(v);
+        var d = el('a', 'mini', '내려받기'); d.href = f; d.setAttribute('download', l.grade + '학년' + l.cls + '반_지도안.pdf'); acts.appendChild(d);
+      } else {
+        var v0 = el('span', 'mini fill off', '지도안 보기'), d0 = el('span', 'mini off', '내려받기');
+        v0.setAttribute('aria-disabled', 'true'); d0.setAttribute('aria-disabled', 'true'); acts.appendChild(v0); acts.appendChild(d0);
+      }
+      li.appendChild(what); li.appendChild(acts); list.appendChild(li);
+    });
+  }
+  [0,1,2,3,4,5,6].forEach(function(g){
+    var c = el('button', 'chip', g ? g + '학년' : '전체'); c.type = 'button'; c.setAttribute('aria-pressed', g === 0);
+    c.addEventListener('click', function(){
+      pick = g; chips.querySelectorAll('.chip').forEach(function(o){ o.setAttribute('aria-pressed', o === c); }); drawLessons();
+    });
+    chips.appendChild(c);
+  });
+  drawLessons();
+  /* docs 폴더에 지도안이 올라와 있는지 살펴, 있는 것만 단추를 켭니다. */
+  if (location.protocol.indexOf('http') === 0){
+    LESSONS.forEach(function(l){
+      var key = l.grade + '-' + l.cls, url = l.file || ('docs/' + key + '.pdf');
+      fetch(url, { method:'HEAD', cache:'no-store' }).then(function(r){
+        if (r.ok){ FOUND[key] = url; drawLessons(); }
+      }).catch(function(){});
+    });
+  }
+  list.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-where]'); if (!b) return;
+    open(document.querySelector(b.dataset.where === 'annex' ? '.shot-annex' : '.shot-main'), ROOMS[b.dataset.room], b.dataset.room + ' 교실'); opener = b;
+  });
+
+  /* 효과: 위쪽 진행 막대, 구역이 올라오며 나타남, 일정이 한 줄씩 차례로 */
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar = document.getElementById('bar');
+  function prog(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')';
+  }
+  window.addEventListener('scroll', prog, { passive: true }); prog();
+  if (!calm && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.remove('wait'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    document.querySelectorAll('[data-rv]').forEach(function(sec){
+      var parts = [sec.querySelector('h2'), sec.querySelector('.lead')]
+        .concat(Array.from(sec.querySelectorAll('.plan li, .route, .chips, .lessons, .link-model, .task, .shot, .apply'))).filter(Boolean);
+      parts.forEach(function(el, i){
+        if (el.getBoundingClientRect().top < window.innerHeight) return;
+        el.classList.add('rv', 'wait'); el.style.setProperty('--d', Math.min(i, 6) * 0.09 + 's'); io.observe(el);
+      });
+    });
+  }
+  document.querySelectorAll('.task > button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var open = b.parentNode.classList.toggle('open');
+      b.setAttribute('aria-expanded', open);
+      b.querySelector('.more').textContent = open ? '요약 접기' : '요약 보기';
+    });
+  });
+
+  /* 동선: 이 표만 고치면 됩니다. at은 조감도(가로 1920, 세로 1080) 위의 좌표, path는 앞 장소에서 이곳까지 걷는 길입니다. */
+  var MAPW = 1580, MAPH = 602;
+  var STOPS = [
+    { name:'공영주차장에 주차', navTag:'내비게이션 검색어', val:'양구읍 중심로 126', note:'학교 후문 길 건너편입니다.', notice:'교내 공사로 학교 주차장은 이용하실 수 없습니다. 조금 걸으셔야 하는 점 너른 양해 부탁드립니다.', at:[780,432], path:'' },
+    { name:'도서관에서 등록', note:'후문으로 들어와 본관 1층 도서관에서 등록하고, 수업 시작에 맞춰 각 학급으로 이동하여 공개수업을 참관합니다.', at:[755,32], path:'M 780 432 L 660 427 L 625 417 L 610 372 L 597 282 L 595 110 Q 598 70 680 58 L 755 32' },
+    { name:'버드나무 예술창고에서 운영 보고회', note:'공개수업 뒤 후문으로 나와 길을 건넙니다. 주차장 바로 옆입니다.', at:[588,494], path:'M 755 32 L 760 78 L 610 82 Q 595 85 595 110 L 597 282 L 610 372 L 625 417 L 588 494' }
+  ];
+
+
+
+  /* 지도 위 고정 표시: 학교 이름, 정문, 후문 */
+  var MARKS = [
+    { text:'양구초등학교', at:[795,283], cls:'lm-school' },
+    { text:'정문', at:[1085,140], cls:'lm-gate' },
+    { text:'후문', at:[598,398], cls:'lm-gate' }
+  ];
+  var rmap = document.getElementById('route-map'), stopsEl = document.getElementById('stops'),
+      leg = document.getElementById('r-leg'), cur = 0, playT = 0;
+  var whole = STOPS.filter(function(s){ return s.path; }).map(function(s, i){ return i ? s.path.replace(/^M\s*[\d.]+\s+[\d.]+\s*/, '') : s.path; }).join(' ');
+  document.getElementById('r-all').setAttribute('d', whole);
+  document.getElementById('r-glow').setAttribute('d', whole);
+  MARKS.forEach(function(m){
+    var t = el('span', 'lm ' + m.cls, m.text);
+    t.style.left = m.at[0] / MAPW * 100 + '%'; t.style.top = m.at[1] / MAPH * 100 + '%';
+    rmap.appendChild(t);
+  });
+  STOPS.forEach(function(st, i){
+    var pin = el('button', 'pin', String(i + 1)); pin.type = 'button';
+    pin.style.left = st.at[0] / MAPW * 100 + '%'; pin.style.top = st.at[1] / MAPH * 100 + '%';
+    pin.setAttribute('aria-label', (i + 1) + '번 ' + st.name);
+    pin.addEventListener('click', function(){ stopPlay(); go(i, true); }); rmap.appendChild(pin);
+    if (st.tag){ var tg = el('span', st.up ? 'pin-tag up' : 'pin-tag', st.tag); tg.style.left = st.at[0] / MAPW * 100 + '%'; tg.style.top = st.at[1] / MAPH * 100 + '%'; rmap.appendChild(tg); }
+    var li = el('li'), b = el('button', 'stop'); b.type = 'button';
+    b.appendChild(el('span', 'n', String(i + 1))); b.appendChild(el('b', '', st.name));
+    if (st.val){ var nv = el('span', 'navi'); nv.appendChild(el('small', '', st.navTag)); nv.appendChild(el('strong', '', st.val)); b.appendChild(nv); }
+    b.appendChild(el('span', '', st.note));
+    if (st.notice) b.appendChild(el('span', 'notice', st.notice));
+    b.addEventListener('click', function(){ stopPlay(); go(i, true); }); li.appendChild(b); stopsEl.appendChild(li);
+  });
+  function go(i, animate){
+    cur = i;
+    rmap.querySelectorAll('.pin').forEach(function(p, k){ p.setAttribute('aria-current', k === i); });
+    stopsEl.querySelectorAll('.stop').forEach(function(p, k){ p.setAttribute('aria-current', k === i); });
+    leg.setAttribute('d', STOPS[i].path || 'M 0 0'); leg.classList.remove('draw'); leg.style.visibility = STOPS[i].path ? '' : 'hidden';
+    if (animate && !calm && STOPS[i].path){
+      var len = leg.getTotalLength(); leg.style.strokeDasharray = len; leg.style.setProperty('--len', len);
+      void leg.getBoundingClientRect(); leg.classList.add('draw');
+    } else { leg.style.strokeDasharray = 'none'; }
+  }
+  function stopPlay(){ clearTimeout(playT); playT = 0; }
+  function play(i){ go(i, true); if (i < STOPS.length - 1) playT = setTimeout(function(){ play(i + 1); }, 2400); else playT = 0; }
+  document.getElementById('route-play').addEventListener('click', function(){ stopPlay(); play(0); });
+  document.getElementById('route-next').addEventListener('click', function(){ stopPlay(); go((cur + 1) % STOPS.length, true); });
+  go(0, false);
+  if (!calm && 'IntersectionObserver' in window){
+    var seen = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ seen.disconnect(); play(0); } }, { threshold: .5 });
+    seen.observe(rmap);
+  }
+
+  /* L.I.N.K. 뜻 */
+  var LINK = {
+    L:{ en:'everaging AI-Tech', ko:'AI·에듀테크를 학습 장벽을 낮추는 지렛대로 활용', body:'에듀테크를 단순한 보조 도구가 아닌, 학습 장벽을 낮추고 개별 학생의 성장을 견인하는 ‘지렛대(Leverage)’로 활용하여 UDL 수업을 상시 운영하였다. 이를 통해 통합교육이 교사 개인의 노력에 의존하지 않도록 구조화하고, 학습 격차를 완화하는 방향으로 수업을 고도화하였다.', to:'연구과제 1. AI·에듀테크 기반 보편적 학습설계 수업 운영' },
+    I:{ en:'ndividualized Inclusion', ko:'학생의 실제 성취에 맞는 평가로 수업의 포용을 평가로 연결', body:'평균적 학생 중심의 성취기준에 맞춰 실시하는 평가에서 벗어나, 장애 학생의 평가에서 실제 학습 도달점을 반영한 ‘세분화된 성취기준별 성취수준’을 적용함으로써 배움과 평가의 일치를 실현하고 평가의 실질적 정당성을 확보하였다. 이를 통해 수업에서의 포용이 평가에서 단절되지 않도록 하였으며, 기존에 개발된 장애학생 평가지원 자료를 보완·확장하여 학교 실정에 맞는 평가 체계를 마련하였다.', to:'연구과제 2. 정당한 평가의 실제 적용 및 일반화' },
+    N:{ en:'urturing Empathy', ko:'장애공감 문화를 학교 전체에서 가꾸고 확산', body:'장애·비장애 학생이 공존하는 교실을 넘어, 학교 공동체 전체가 서로를 존중하고 배려하며 마음을 나누는 공감(Empathy)의 문화를 정성스럽게 가꾸고(Nurture) 지속하여 확산하였다. 이를 통해 포용이 일회성 활동에 머물지 않고 학교 일상 실천으로 자리 잡도록 하였으며, 수업과 평가의 변화를 지지하는 문화적 기반을 공고히 하였다.', to:'연구과제 3. 장애공감 문화의 성장과 확산' },
+    K:{ en:'ey to Universal Access', ko:'모든 학생이 배움에 접근할 수 있는 보편적 교육환경을 지향', body:'본 프로그램을 통해 모든 학생이 소외되지 않고 배움의 권리를 누리게 함으로써, 지속 가능한 개별 맞춤형 통합교육 모델의 정립을 지향하였다.', to:'세 과제가 함께 이루는 목표' }
+  };
+  var ld = document.getElementById('link-detail');
+  document.querySelectorAll('.lk').forEach(function(b){
+    b.addEventListener('click', function(){
+      var k = b.dataset.k, d = LINK[k];
+      document.querySelectorAll('.lk').forEach(function(o){ o.setAttribute('aria-pressed', o === b); });
+      ld.querySelector('h4').innerHTML = ''; var cap = el('span', 'cap', k); ld.querySelector('h4').appendChild(cap); ld.querySelector('h4').appendChild(document.createTextNode(d.en));
+      ld.querySelector('.ko').textContent = d.ko; ld.querySelector('.body').textContent = d.body; ld.querySelector('.to').textContent = d.to;
+      ld.classList.remove('swap'); void ld.offsetWidth; if (!calm) ld.classList.add('swap');
+    });
+  });
+  var mdl = document.getElementById('model'), mfrom = null;
+  function mClose(){ mdl.hidden = true; document.body.style.overflow = ''; if (mfrom) mfrom.focus(); }
+  document.getElementById('model-open').addEventListener('click', function(e){ mfrom = e.currentTarget; mdl.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('model-close').focus(); });
+  document.getElementById('model-close').addEventListener('click', mClose);
+  mdl.addEventListener('click', function(e){ if (e.target === mdl) mClose(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !mdl.hidden) mClose(); });
+
+  document.getElementById('tel-copy').addEventListener('click', function(e){
+    var b = e.currentTarget, t = document.getElementById('tel').textContent;
+    function done(){ b.textContent = '복사됨'; setTimeout(function(){ b.textContent = '번호 복사'; }, 1600); }
+    function pick(){ var r = document.createRange(); r.selectNodeContents(document.getElementById('tel')); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent = '선택됨'; setTimeout(function(){ b.textContent = '번호 복사'; }, 1600); }
+    try { navigator.clipboard.writeText(t).then(done, pick); } catch (err) { pick(); }
+  });
+
+  /* 연구 전체 보기 */
+  var reader = document.getElementById('reader'), rbody = document.getElementById('reader-body'),
+      rtabs = document.getElementById('reader-tabs'), rfrom = null;
+  var slot = rbody.querySelector('.mdl-slot'); if (slot) slot.appendChild(document.querySelector('#model .mdl').cloneNode(true));
+  rbody.querySelectorAll('section').forEach(function(sec){
+    var c = el('button', 'chip', sec.dataset.tab); c.type = 'button';
+    c.addEventListener('click', function(){ sec.scrollIntoView({ block: 'start' }); }); rtabs.appendChild(c);
+  });
+  function readOpen(id, from){
+    rfrom = from; reader.hidden = false; document.body.style.overflow = 'hidden';
+    var t = document.getElementById(id); rbody.scrollTop = 0; if (t) rbody.scrollTop = t.offsetTop - rbody.offsetTop;
+    document.getElementById('reader-close').focus();
+  }
+  function readClose(){ reader.hidden = true; document.body.style.overflow = ''; if (rfrom) rfrom.focus(); }
+  document.querySelectorAll('[data-read]').forEach(function(b){ b.addEventListener('click', function(){ readOpen(b.dataset.read, b); }); });
+  document.getElementById('reader-close').addEventListener('click', readClose);
+  reader.addEventListener('click', function(e){ if (e.target === reader) readClose(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !reader.hidden) readClose(); });
+
+  /* 안내도 확대 보기 */
+  var viewer = document.getElementById('viewer'), stage = document.getElementById('stage'),
+      img = document.getElementById('v-img'), title = document.getElementById('viewer-title');
+  var s = 1, x = 0, y = 0, fitS = 1, opener = null, pts = new Map(), pinch = null, hlBox = null;
+  var hl = document.getElementById('v-hl');
+
+  function clamp(){
+    var sw = stage.clientWidth, sh = stage.clientHeight, w = img.naturalWidth*s, h = img.naturalHeight*s;
+    x = w <= sw ? (sw-w)/2 : Math.min(0, Math.max(sw-w, x));
+    y = h <= sh ? (sh-h)/2 : Math.min(0, Math.max(sh-h, y));
+  }
+  function apply(){
+    clamp(); img.style.transform = 'translate('+x+'px,'+y+'px) scale('+s+')';
+    if (hlBox){ hl.style.left = (x + hlBox[0]*s) + 'px'; hl.style.top = (y + hlBox[1]*s) + 'px';
+      hl.style.width = (hlBox[2]-hlBox[0])*s + 'px'; hl.style.height = (hlBox[3]-hlBox[1])*s + 'px'; }
+  }
+  function focusRoom(){
+    var sw = stage.clientWidth, sh = stage.clientHeight, bw = hlBox[2]-hlBox[0];
+    var ns = Math.max(fitS, Math.min(fitS*6, Math.min(sw*0.3, 200) / bw));
+    s = ns; x = sw/2 - (hlBox[0]+hlBox[2])/2*ns; y = sh/2 - (hlBox[1]+hlBox[3])/2*ns; apply();
+  }
+  function fit(){
+    fitS = Math.min(stage.clientWidth/img.naturalWidth, stage.clientHeight/img.naturalHeight);
+    s = fitS; x = 0; y = 0; apply();
+  }
+  function zoomAt(px, py, ns){
+    ns = Math.min(Math.max(ns, fitS), Math.max(fitS*8, 2));
+    x = px - (px - x) * (ns/s); y = py - (py - y) * (ns/s); s = ns; apply();
+  }
+  function centre(f){ zoomAt(stage.clientWidth/2, stage.clientHeight/2, s*f); }
+  function open(btn, box, label){
+    opener = btn; title.textContent = btn.dataset.title;
+    hlBox = box || null; hl.hidden = !hlBox;
+    var bi = btn.querySelector('img'); img.alt = bi ? bi.alt : btn.dataset.title;
+    viewer.hidden = false; document.body.style.overflow = 'hidden';
+    var go = function(){ fit(); };
+    img.onload = go; img.src = btn.dataset.src;
+    if (img.complete && img.naturalWidth) go();
+    document.getElementById('v-close').focus();
+  }
+  function close(){
+    viewer.hidden = true; document.body.style.overflow = ''; pts.clear(); pinch = null; hlBox = null; hl.hidden = true;
+    if (opener) opener.focus();
+  }
+  document.querySelectorAll('.shot').forEach(function(b){ b.addEventListener('click', function(){ open(b); }); });
+  document.getElementById('v-close').addEventListener('click', close);
+  document.getElementById('v-fit').addEventListener('click', fit);
+  document.getElementById('v-in').addEventListener('click', function(){ centre(1.5); });
+  document.getElementById('v-out').addEventListener('click', function(){ centre(1/1.5); });
+  document.addEventListener('keydown', function(e){
+    if (viewer.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === '+' || e.key === '=') centre(1.5);
+    else if (e.key === '-') centre(1/1.5);
+  });
+  window.addEventListener('resize', function(){ if (!viewer.hidden) fit(); });
+
+  function local(e){ var r = stage.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+  stage.addEventListener('wheel', function(e){
+    e.preventDefault(); var p = local(e); zoomAt(p.x, p.y, s * (e.deltaY < 0 ? 1.18 : 1/1.18));
+  }, { passive: false });
+  stage.addEventListener('dblclick', function(e){
+    var p = local(e); if (s > fitS*1.05) fit(); else zoomAt(p.x, p.y, fitS*3);
+  });
+  stage.addEventListener('pointerdown', function(e){
+    stage.setPointerCapture(e.pointerId); pts.set(e.pointerId, local(e)); stage.classList.add('drag'); pinch = null;
+  });
+  stage.addEventListener('pointermove', function(e){
+    if (!pts.has(e.pointerId)) return;
+    var prev = pts.get(e.pointerId), now = local(e); pts.set(e.pointerId, now);
+    if (pts.size === 1){ x += now.x - prev.x; y += now.y - prev.y; apply(); return; }
+    var a = Array.from(pts.values()), d = Math.hypot(a[0].x-a[1].x, a[0].y-a[1].y),
+        mx = (a[0].x+a[1].x)/2, my = (a[0].y+a[1].y)/2;
+    if (pinch){ x += mx - pinch.mx; y += my - pinch.my; zoomAt(mx, my, s * d / pinch.d); }
+    pinch = { d: d, mx: mx, my: my };
+  });
+  function up(e){ pts.delete(e.pointerId); pinch = null; if (!pts.size) stage.classList.remove('drag'); }
+  stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
+})();
+</script>
+<script>
+/* 움직임 줄이기를 켠 기기에서는 영상을 멈춘 채 첫 장면만 보여 줍니다. */
+(function(){ var v=document.querySelector('video.hero-media'); if(v && matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); } })();
+</script>
+
+</body></html>
