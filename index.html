@@ -138,6 +138,7 @@ html{scroll-behavior:smooth}
 .mini.fill{background:var(--blue);border-color:var(--blue);color:var(--card)}
 .mini.fill:hover{background:var(--ink);border-color:var(--ink);color:var(--card)}
 .mini.off{opacity:.45;cursor:default;pointer-events:none}
+.later{display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border-radius:999px;border:1px dashed var(--line);color:var(--mute);font-size:.9375rem;font-weight:700}
 
 /* ── 동선 ── */
 .route{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:18px;align-items:stretch}
@@ -682,8 +683,7 @@ button,a,.lk,.stop,.shot,.chip,.mini{-webkit-tap-highlight-color:transparent;tou
         var v = el('a', 'mini fill', '지도안 보기'); v.href = f; v.target = '_blank'; v.rel = 'noopener'; acts.appendChild(v);
         var d = el('a', 'mini', '내려받기'); d.href = f; d.setAttribute('download', l.grade + '학년' + l.cls + '반_지도안.pdf'); acts.appendChild(d);
       } else {
-        var v0 = el('span', 'mini fill off', '지도안 보기'), d0 = el('span', 'mini off', '내려받기');
-        v0.setAttribute('aria-disabled', 'true'); d0.setAttribute('aria-disabled', 'true'); acts.appendChild(v0); acts.appendChild(d0);
+        acts.appendChild(el('span', 'later', '지도안 추후 게시'));
       }
       li.appendChild(what); li.appendChild(acts); list.appendChild(li);
     });
