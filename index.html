@@ -680,8 +680,8 @@ button,a,.lk,.stop,.shot,.chip,.mini{-webkit-tap-highlight-color:transparent;tou
       var loc = el('button', 'mini', '교실 위치'); loc.type = 'button'; loc.dataset.where = l.where; loc.dataset.room = l.grade + '-' + l.cls; acts.appendChild(loc);
       var f = FOUND[l.grade + '-' + l.cls];
       if (f){
-        var v = el('a', 'mini fill', '지도안 보기'); v.href = f; v.target = '_blank'; v.rel = 'noopener'; acts.appendChild(v);
-        var d = el('a', 'mini', '내려받기'); d.href = f; d.setAttribute('download', l.grade + '학년' + l.cls + '반_지도안.pdf'); acts.appendChild(d);
+        var v = el('a', 'mini fill', '지도안 보기'); v.href = f + '?v=' + Date.now(); v.target = '_blank'; v.rel = 'noopener'; acts.appendChild(v);
+        var d = el('a', 'mini', '내려받기'); d.href = f + '?v=' + Date.now(); d.setAttribute('download', l.grade + '학년' + l.cls + '반_지도안.pdf'); acts.appendChild(d);
       } else {
         acts.appendChild(el('span', 'later', '지도안 추후 게시'));
       }
