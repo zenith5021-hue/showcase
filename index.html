@@ -333,6 +333,7 @@ h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.1rem);line-height:1.12;letter-
 .btn{border:1px solid transparent}
 .btn-go{background:var(--ink);color:var(--card)}
 .btn-line{background:var(--card);border-color:var(--line);color:var(--ink)}
+.btn-closed,.btn-closed:hover{background:var(--wash)!important;border-color:var(--line)!important;color:var(--mute)!important;cursor:default;transform:none!important;box-shadow:none!important}
 .btn-go:hover,.btn-line:hover{background:var(--sun);border-color:var(--ink);color:var(--ink);transform:translateY(-2px) scale(1.03);box-shadow:0 7px 22px rgba(17,20,24,.2)}
 .chip,.mini{transition:background-color .15s ease,border-color .15s ease,color .15s ease,transform .15s ease}
 .chip:hover,.mini:hover,.mini.fill:hover{background:var(--sun);border-color:var(--ink);color:var(--ink);transform:scale(1.05)}
@@ -426,7 +427,7 @@ button,a,.lk,.stop,.shot,.chip,.mini{-webkit-tap-highlight-color:transparent;tou
         <div><dt>장소</dt><dd>양구초등학교, 버드나무 예술창고</dd></div>
       </dl>
       <div class="cta">
-        <a class="btn btn-go" href="#apply">참석 신청하기</a>
+        <span class="btn btn-closed" aria-disabled="true">참가 신청 마감</span>
         <a class="btn btn-line" href="#lessons">공개수업 보기</a>
       </div>
     </div>
@@ -559,7 +560,7 @@ button,a,.lk,.stop,.shot,.chip,.mini{-webkit-tap-highlight-color:transparent;tou
         <h2>참석 신청</h2>
         <p>아래 주소나 QR코드로 신청해 주십시오.</p>
         <p class="apply-url">https://gw1.kr/r0ay6</p>
-        <a class="btn btn-go" href="https://gw1.kr/r0ay6" target="_blank" rel="noopener">참석 신청하기</a>
+        <span class="btn btn-closed" aria-disabled="true">참가 신청 마감</span>
       </div>
       <img class="qr" src="qr.png" alt="참석 신청 주소(https://gw1.kr/r0ay6)로 연결되는 QR코드" width="400" height="400">
     </div>
